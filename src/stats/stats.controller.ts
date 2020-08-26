@@ -1,4 +1,4 @@
-import { Controller, Get, Body, Post, Param } from '@nestjs/common';
+import { Controller, Get, Body, Post, Param, Ip } from '@nestjs/common';
 import { Stats } from './interfaces/stats.interface';
 import { StatsService } from './stats.service';
 
@@ -7,7 +7,7 @@ export class StatsController {
   constructor (private readonly StatsService: StatsService) {}
 
   @Get()
-  public find (): Stats | Object {
+  public find (@Ip() ip): Stats | Object {
     return this.StatsService.find();
   }
 
