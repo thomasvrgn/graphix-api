@@ -7,12 +7,12 @@ export class StatsController {
   constructor (private readonly StatsService: StatsService) {}
 
   @Get()
-  public find (): Stats {
+  public find (): Stats | Object {
     return this.StatsService.find();
   }
 
   @Get(':category')
-  public findOne (@Param('category') category: string): number | string {
+  public findOne (@Param('category') category: string): number | string | Object {
     return this.StatsService.findOne(category);
   }
 
